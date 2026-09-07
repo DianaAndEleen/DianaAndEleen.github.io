@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>阅读 · 青简</title>
+  <meta name="description" content="青简在线阅读页面。">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='6' fill='%23e6b45c'/><path d='M6 6v12h4l2-2 2 2h4V6H14l-2 2-2-2z' fill='%236b4a13'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div data-layout-topbar></div>
+
+  <main class="container reader" data-reader>
+    <div class="reader-top">
+      <a class="back" data-back href="book.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        返回作品
+      </a>
+      <div class="reader-controls">
+        <button class="icon-btn" data-font-dec aria-label="缩小字号">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>
+        </button>
+        <span class="tag" data-font-label style="min-width:48px;text-align:center">100%</span>
+        <button class="icon-btn" data-font-inc aria-label="放大字号">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <button class="icon-btn" data-toc-open aria-label="目录">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h14"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <article class="reader-panel">
+      <h1 class="reader-chapter-title" data-chapter-title>加载中…</h1>
+      <div class="reader-meta" data-chapter-meta></div>
+      <div class="reader-content" data-content></div>
+      <nav class="reader-nav">
+        <a class="btn btn-ghost" data-prev href="javascript:void(0)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          上一章
+        </a>
+        <a class="btn btn-primary" data-next href="javascript:void(0)">下一章</a>
+      </nav>
+    </article>
+  </main>
+
+  <div data-layout-footer></div>
+
+  <div class="overlay" data-overlay></div>
+  <aside class="toc-drawer" data-toc>
+    <div class="toc-head">
+      <h4 data-toc-title>目录</h4>
+      <button class="icon-btn" data-toc-close aria-label="关闭">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="toc-list" data-toc-list></div>
+  </aside>
+
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/read.js"></script>
+</body>
+</html>

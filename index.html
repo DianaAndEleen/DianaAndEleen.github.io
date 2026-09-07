@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>青简 · 同人书苑 — 故事在这里相遇</title>
+  <meta name="description" content="青简是一家收录同人创作与原创故事的在线阅读平台，支持分类、搜索、书库与在线阅读。">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='6' fill='%23e6b45c'/><path d='M6 6v12h4l2-2 2 2h4V6H14l-2 2-2-2z' fill='%236b4a13'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div data-layout-topbar></div>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero reveal">
+      <img class="hero-img" src="assets/images/banners/hero.jpg" alt="雾海书夜">
+      <div class="hero-veil"></div>
+      <div class="hero-content">
+        <span class="hero-eyebrow">· 青简 · 同人书苑 ·</span>
+        <h1 class="hero-title">把故事<br>写进<em>星河与长夜</em></h1>
+        <p class="hero-sub">收集好看的原创与同人短篇，一本书、一盏灯，陪你把每个夜晚读得慢一点。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="library.html">
+            开始阅读
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="library.html?sort=new">看看最近更新</a>
+        </div>
+      </div>
+      <div class="hero-stats" data-stats></div>
+    </section>
+
+    <!-- Featured grid -->
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>精选好书</h2>
+          <p>按分类筛选，找到你的下一本心头好</p>
+        </div>
+        <a class="section-more" href="library.html">进入书库 →</a>
+      </div>
+
+      <div class="tabs" data-cat-tabs></div>
+      <div class="book-grid" data-book-grid></div>
+    </section>
+
+    <!-- Ranking -->
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>本周热榜</h2>
+          <p>读者们正在追更的作品</p>
+        </div>
+        <a class="section-more" href="library.html?sort=rank">查看完整排行 →</a>
+      </div>
+      <div class="rank-grid" data-rank-grid></div>
+    </section>
+
+    <!-- Editor's pick banner -->
+    <section class="feature-banner reveal" data-feature-banner></section>
+  </main>
+
+  <div data-layout-footer></div>
+
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/home.js"></script>
+</body>
+</html>

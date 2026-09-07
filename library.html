@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>全部书库 · 青简</title>
+  <meta name="description" content="青简书库：按分类、热度、评分浏览同人与原创故事。">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='6' fill='%23e6b45c'/><path d='M6 6v12h4l2-2 2 2h4V6H14l-2 2-2-2z' fill='%236b4a13'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div data-layout-topbar></div>
+
+  <main class="container">
+    <header class="page-head">
+      <div class="crumbs"><a href="index.html">首页</a> / 书库</div>
+      <h1 data-page-title>全部书库</h1>
+      <p style="color:var(--text-muted);margin:6px 0 0">总有一本书，能在某个夜晚陪你走一段路。</p>
+    </header>
+
+    <section class="section" style="padding-top:8px">
+      <div class="tabs" data-cat-tabs></div>
+      <div class="tabs" data-sort style="margin-bottom:20px"></div>
+      <div class="section-head" style="margin-bottom:16px">
+        <p data-count style="margin:0"></p>
+      </div>
+      <div class="book-grid" data-grid></div>
+    </section>
+  </main>
+
+  <div data-layout-footer></div>
+
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/library.js"></script>
+</body>
+</html>

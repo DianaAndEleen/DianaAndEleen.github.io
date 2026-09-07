@@ -1,0 +1,13 @@
+# Chrome / preview build artifacts (local only, never publish)
+build/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp

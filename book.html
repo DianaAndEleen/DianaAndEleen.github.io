@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>书籍详情 · 青简</title>
+  <meta name="description" content="青简书籍详情页。">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='6' fill='%23e6b45c'/><path d='M6 6v12h4l2-2 2 2h4V6H14l-2 2-2-2z' fill='%236b4a13'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div data-layout-topbar></div>
+
+  <main class="container">
+    <div data-book></div>
+
+    <section class="book-sections">
+      <div class="section-head">
+        <div><h2>章节目录</h2><p>随时从任意章节继续阅读</p></div>
+      </div>
+      <div data-chapters></div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="section-head">
+        <div><h2>相关推荐</h2><p>也许你还会喜欢这些</p></div>
+      </div>
+      <div class="related-grid" data-related></div>
+    </section>
+  </main>
+
+  <div data-layout-footer></div>
+
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/book.js"></script>
+</body>
+</html>
