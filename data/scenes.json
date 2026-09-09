@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "imageBase": "assets/images/scenes/",
+  "note": "每部小说一段配置：mood 决定配乐氛围，cast[0] 是主角（用于引号台词），chapters 里按章节给出每段文字使用的背景图文件名（不含 .jpg）。新增小说时在这里补一段即可。",
+  "books": {
+    "mirage-whisper": {
+      "mood": "sea",
+      "cast": ["阿澄"],
+      "backgrounds": ["sea-fog-coast", "desk-globe", "forest-mist", "lighthouse-sea", "ocean-sunset"],
+      "chapters": {
+        "1": ["sea-fog-coast", "desk-globe", "sea-fog-coast"],
+        "2": ["desk-globe", "sea-fog-coast", "forest-mist"],
+        "3": ["sea-fog-coast", "lighthouse-sea", "forest-mist"],
+        "4": ["forest-mist", "forest-mist", "desk-globe"],
+        "5": ["lighthouse-sea", "ocean-sunset", "lighthouse-sea"],
+        "6": ["ocean-sunset", "lighthouse-sea", "ocean-sunset"]
+      }
+    },
+    "long-night-lamp": {
+      "mood": "rain",
+      "cast": ["老周"],
+      "backgrounds": ["city-rain-night", "bookstore-cozy", "bookstore-shelves", "rain-window", "night-bokeh"],
+      "chapters": {
+        "1": ["city-rain-night", "bookstore-cozy", "bookstore-shelves"],
+        "2": ["bookstore-cozy", "rain-window", "bookstore-shelves"],
+        "3": ["night-bokeh", "bookstore-cozy", "rain-window"],
+        "4": ["bookstore-shelves", "bookstore-cozy", "rain-window"]
+      }
+    },
+    "star-ferry": {
+      "mood": "space",
+      "cast": ["纪岚"],
+      "backgrounds": ["starry-sky", "milkyway-lake", "night-bokeh"],
+      "chapters": {
+        "1": ["starry-sky", "milkyway-lake", "starry-sky"],
+        "2": ["milkyway-lake", "starry-sky", "night-bokeh"],
+        "3": ["starry-sky", "milkyway-lake", "starry-sky"],
+        "4": ["milkyway-lake", "starry-sky", "milkyway-lake"]
+      }
+    },
+    "spring-hill": {
+      "mood": "folk",
+      "cast": ["苏鸣鹤"],
+      "backgrounds": ["mountain-village", "garden-greens", "forest-mist"],
+      "chapters": {
+        "1": ["mountain-village", "garden-greens", "forest-mist"],
+        "2": ["garden-greens", "mountain-village", "garden-greens"],
+        "3": ["forest-mist", "mountain-village", "garden-greens"],
+        "4": ["mountain-village", "garden-greens", "mountain-village"]
+      }
+    },
+    "corner-coffee": {
+      "mood": "city",
+      "cast": ["程橙"],
+      "backgrounds": ["city-rain-night", "coffee-table", "night-bokeh", "rain-window"],
+      "chapters": {
+        "1": ["city-rain-night", "coffee-table", "night-bokeh"],
+        "2": ["coffee-table", "night-bokeh", "coffee-table"],
+        "3": ["night-bokeh", "coffee-table", "city-rain-night"],
+        "4": ["coffee-table", "rain-window", "night-bokeh"]
+      }
+    },
+    "mirror-city": {
+      "mood": "mirror",
+      "cast": ["阿朵"],
+      "backgrounds": ["tower-cloudy", "antique-mirror", "clocktower"],
+      "chapters": {
+        "1": ["tower-cloudy", "antique-mirror", "tower-cloudy"],
+        "2": ["antique-mirror", "tower-cloudy", "clocktower"],
+        "3": ["tower-cloudy", "antique-mirror", "clocktower"],
+        "4": ["clocktower", "tower-cloudy", "antique-mirror"]
+      }
+    },
+    "scavenger-notes": {
+      "mood": "urban",
+      "cast": ["小满"],
+      "backgrounds": ["city-rain-night", "desk-globe", "night-bokeh", "rain-window"],
+      "chapters": {
+        "1": ["city-rain-night", "desk-globe", "night-bokeh"],
+        "2": ["desk-globe", "rain-window", "night-bokeh"],
+        "3": ["night-bokeh", "city-rain-night", "desk-globe"]
+      }
+    },
+    "tide-letter": {
+      "mood": "tide",
+      "cast": ["许念"],
+      "backgrounds": ["ocean-sunset", "sea-pier", "lighthouse-sea"],
+      "chapters": {
+        "1": ["ocean-sunset", "sea-pier", "lighthouse-sea"],
+        "2": ["sea-pier", "ocean-sunset", "lighthouse-sea"],
+        "3": ["lighthouse-sea", "ocean-sunset", "lighthouse-sea"],
+        "4": ["ocean-sunset", "sea-pier", "ocean-sunset"]
+      }
+    }
+  }
+}

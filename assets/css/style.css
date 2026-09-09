@@ -226,6 +226,70 @@ button { font-family: inherit; cursor: pointer; }
 .btn-ghost { background: transparent; }
 .btn-sm { padding: 7px 14px; font-size: 0.84rem; border-radius: 9px; }
 
+.btn-theater {
+  border-color: color-mix(in srgb, var(--accent) 48%, transparent);
+  background: color-mix(in srgb, var(--accent) 13%, transparent);
+  color: var(--accent);
+}
+
+.btn-theater:hover {
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+  border-color: var(--accent);
+}
+
+/* ---------- Theater promo (home) ---------- */
+.theater-promo {
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+}
+
+.theater-promo-bg { position: absolute; inset: 0; }
+.theater-promo-bg img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.92) brightness(0.62); transform: scale(1.02); }
+
+.theater-promo-veil {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(7, 10, 16, 0.94) 0%, rgba(7, 10, 16, 0.72) 46%, rgba(7, 10, 16, 0.22) 100%),
+    linear-gradient(0deg, rgba(7, 10, 16, 0.9) 0%, transparent 60%);
+}
+
+.theater-promo-body {
+  position: relative;
+  z-index: 2;
+  max-width: 620px;
+  padding: 46px 40px;
+  color: #f3efe7;
+}
+
+.theater-promo-body h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3.4vw, 2.3rem);
+  margin: 18px 0 12px;
+  letter-spacing: 0.02em;
+}
+
+.theater-promo-body p {
+  color: rgba(243, 239, 231, 0.82);
+  font-size: 0.98rem;
+  line-height: 1.9;
+  margin: 0 0 24px;
+  max-width: 540px;
+}
+
+.theater-promo .btn-ghost { color: #fff; border-color: rgba(255, 255, 255, 0.3); background: rgba(0, 0, 0, 0.16); }
+.theater-promo .btn-ghost:hover { background: rgba(0, 0, 0, 0.3); }
+
+@media (max-width: 640px) {
+  .theater-promo-body { padding: 34px 22px; }
+}
+
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
@@ -721,10 +785,10 @@ button { font-family: inherit; cursor: pointer; }
   margin-bottom: 22px;
 }
 
-.reader-top .back { display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); font-size: 0.9rem; }
+.reader-top .back { display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); font-size: 0.9rem; white-space: nowrap; flex-shrink: 0; }
 .reader-top .back:hover { color: var(--accent); }
 
-.reader-controls { display: flex; align-items: center; gap: 8px; }
+.reader-controls { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 .reader-controls .icon-btn { width: 34px; height: 34px; }
 
 .reader-panel {
@@ -878,6 +942,8 @@ button { font-family: inherit; cursor: pointer; }
   .rank-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .reader-nav { flex-direction: column; }
+  .reader-top { flex-wrap: wrap; }
+  .reader-controls { width: 100%; justify-content: flex-end; }
 }
 
 /* ---------- Motion ---------- */

@@ -69,6 +69,15 @@
 
       applyFont(fetchScale());
 
+      // 供剧场模式（assets/js/theater.js）读取当前书籍与章节
+      window.QJ_READY = {
+        book: book,
+        chapter: ch,
+        chapterIndex: c,
+        totalChapters: total
+      };
+      document.dispatchEvent(new CustomEvent("qj:ready", { detail: window.QJ_READY }));
+
       // Prev / next
       var prev = document.querySelector("[data-prev]");
       var next = document.querySelector("[data-next]");

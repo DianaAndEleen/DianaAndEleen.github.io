@@ -48,6 +48,9 @@
               '<a class="btn btn-primary" href="' + window.QJ.base + 'read.html?id=' + encodeURIComponent(book.id) + '&c=1">' +
                 '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19l7-7 7 7M5 5l7 7 7-7"/></svg> 开始阅读' +
               '</a>' +
+              '<a class="btn btn-theater" href="' + window.QJ.base + 'read.html?id=' + encodeURIComponent(book.id) + '&c=1&mode=theater">' +
+                '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M10 8.5v7l6-3.5-6-3.5z"/></svg> 沉浸剧场' +
+              '</a>' +
               '<button class="btn btn-ghost" data-like>' +
                 '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8z"/></svg> 收藏' +
               '</button>' +
