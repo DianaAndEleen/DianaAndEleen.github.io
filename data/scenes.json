@@ -1,7 +1,7 @@
 {
   "version": 1,
   "imageBase": "assets/images/scenes/",
-  "note": "每部小说一段配置：mood 决定配乐氛围，cast[0] 是主角（用于引号台词），chapters 里按章节给出每段文字使用的背景图文件名（不含 .jpg）。新增小说时在这里补一段即可。",
+  "note": "每部小说一段配置：mood 决定配乐氛围，bgm 可选真实音频，cast 是角色名；chapters 按章节逐段给出背景图，speakers 可按段落覆盖说话人（null 表示旁白）。新增小说时在这里补一段即可。",
   "books": {
     "mirage-whisper": {
       "mood": "sea",
@@ -90,6 +90,23 @@
         "2": ["sea-pier", "ocean-sunset", "lighthouse-sea"],
         "3": ["lighthouse-sea", "ocean-sunset", "lighthouse-sea"],
         "4": ["ocean-sunset", "sea-pier", "ocean-sunset"]
+      }
+    },
+    "morning-colors": {
+      "mood": "morning",
+      "bgm": "assets/audio/carefree.mp3",
+      "cast": ["乃琳", "嘉然", "同事"],
+      "backgrounds": ["bedroom-cozy", "workspace", "office-building", "desk-work", "office-hall", "pink-dahlia", "morning-coffee", "tree-street", "cherry-street", "cafe-window", "city-street", "hotpot", "white-bouquet", "night-bokeh", "morning-light", "summer-park"],
+      "chapters": {
+        "1": ["bedroom-cozy", "bedroom-cozy", "workspace", "office-building", "desk-work", "office-hall", "workspace", "office-hall", "office-hall", "office-hall", "pink-dahlia", "office-hall", "office-hall", "pink-dahlia", "morning-coffee", "morning-coffee", "tree-street", "tree-street", "cherry-street", "cafe-window"],
+        "2": ["morning-coffee", "cafe-window", "city-street", "city-street", "city-street", "city-street", "tree-street", "city-street", "hotpot", "tree-street", "tree-street", "tree-street", "hotpot", "hotpot", "hotpot", "hotpot", "hotpot", "hotpot", "hotpot", "hotpot", "hotpot", "hotpot", "hotpot", "hotpot", "hotpot", "hotpot", "office-building", "office-building", "office-building", "city-street", "city-street", "city-street"],
+        "3": ["desk-work", "workspace", "office-hall", "office-hall", "office-building", "office-building", "office-building", "office-hall", "city-street", "city-street", "city-street", "city-street", "tree-street", "tree-street", "city-street", "city-street", "city-street", "city-street", "city-street", "tree-street", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "white-bouquet", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "night-bokeh", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "white-bouquet", "white-bouquet", "white-bouquet", "bedroom-cozy", "bedroom-cozy", "white-bouquet", "white-bouquet", "white-bouquet", "white-bouquet", "white-bouquet", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy"],
+        "4": ["morning-light", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "tree-street", "summer-park", "tree-street", "summer-park", "city-street"]
+      },
+      "speakers": {
+        "1": {"9": "嘉然", "10": "乃琳", "11": "嘉然", "12": "嘉然", "13": "乃琳", "14": "嘉然", "16": "嘉然", "17": "乃琳", "18": "乃琳", "19": "嘉然"},
+        "2": {"1": "嘉然", "3": "嘉然", "4": "乃琳", "5": "嘉然", "6": "乃琳", "8": "嘉然", "13": "嘉然", "15": "乃琳", "18": "嘉然", "21": "嘉然", "23": "乃琳", "24": "嘉然", "27": "嘉然", "28": "乃琳", "29": "嘉然", "30": "乃琳", "31": "嘉然"},
+        "3": {"6": "乃琳", "8": "乃琳", "9": "乃琳", "10": "嘉然", "12": "乃琳", "15": "同事", "16": "嘉然", "17": "同事", "18": "同事", "23": "乃琳", "25": "嘉然", "26": "乃琳", "27": "嘉然", "29": "嘉然", "30": "乃琳", "31": "嘉然", "33": "乃琳", "34": "嘉然", "37": "乃琳", "39": null, "41": "嘉然", "43": "乃琳", "45": "嘉然", "46": "嘉然", "48": "乃琳", "50": null, "53": "嘉然", "55": "嘉然", "56": "嘉然", "57": "嘉然", "59": "乃琳", "61": "嘉然", "62": "乃琳", "63": "嘉然", "64": "乃琳", "65": "嘉然"}
       }
     }
   }

@@ -9,7 +9,7 @@
 
 - 把每一段文字拆成若干句，逐句显示在画面底部的对白框中；
 - 每一段文字配一张背景图，场景之间交叉淡入，并带有缓慢的镜头推近；
-- 背景音乐由浏览器实时合成，按作品氛围切换（雾海 / 雨夜 / 星海 / 春山 / 巷口 / 镜城 / 市井 / 潮汐）；
+- 背景音乐支持真实音频，并以浏览器实时合成作为加载失败时的兜底（雾海 / 雨夜 / 星海 / 春山 / 巷口 / 清晨 / 镜城 / 市井 / 潮汐）；
 - 支持点击、空格、方向键推进，`A` 自动播放，`M` 开关音乐，`Esc` 退出；
 - 章节末尾会出现「本章完」卡片，可直接进入下一章剧场。
 
@@ -52,16 +52,20 @@ CREDITS.md              素材来源与许可
       "chapters": {
         "1": ["sea-fog-coast", "lighthouse-sea", "ocean-sunset"],
         "2": ["ocean-sunset", "sea-fog-coast", "lighthouse-sea"]
+      },
+      "speakers": {
+        "1": { "0": "主角名", "1": null }
       }
     }
   }
 }
 ```
 
-- `mood`：配乐氛围，可选 `sea` / `rain` / `space` / `folk` / `city` / `mirror` / `urban` / `tide`；
-- `cast`：角色名数组，`cast[0]` 会用于引号开头的台词，其余显示为「旁白」；
+- `mood`：配乐氛围，可选 `sea` / `rain` / `space` / `folk` / `city` / `morning` / `mirror` / `urban` / `tide`；
+- `cast`：角色名数组；没有配置 `speakers` 时，`cast[0]` 会用于引号开头的台词，其余显示为「旁白」；
 - `backgrounds`：背景池，章节没有单独配置时按段落循环使用；
 - `chapters`：按章节号（从 1 开始）逐段指定背景图，优先于 `backgrounds`；
+- `speakers`：可选。按章节号和段落序号覆盖说话人，适合双人对话；值设为 `null` 可把该段标为旁白；
 - 背景图文件名不含 `.jpg`，统一放在 `assets/images/scenes/`。
 
 ### 换成真实音频（可选）
@@ -87,5 +91,5 @@ python -m http.server 8080
 
 ## 素材许可
 
-剧场背景图来自 Unsplash，遵循 Unsplash License；配乐为浏览器实时合成，
-不涉及第三方音频授权。完整清单见 [CREDITS.md](CREDITS.md)。
+剧场背景图来自 Unsplash 与 Pexels；部分作品使用 Creative Commons 授权音频，
+其余配乐由浏览器实时合成。完整来源、作者与许可见 [CREDITS.md](CREDITS.md)。

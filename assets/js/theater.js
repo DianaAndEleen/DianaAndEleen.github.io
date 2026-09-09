@@ -5,10 +5,12 @@
  * 以对白框 + 打字机 + 背景交叉淡入的方式逐句播放。
  *
  * 场景配置来自 data/scenes.json：
- *   books[bookId].mood          配乐氛围
- *   books[bookId].cast          角色名（cast[0] 用于引号台词）
- *   books[bookId].backgrounds   通用背景池
- *   books[bookId].chapters["1"] 某一章的逐段背景（优先）
+ *   books[bookId].mood              配乐氛围
+ *   books[bookId].bgm               可选真实音频（优先于 mood）
+ *   books[bookId].cast              角色名（未配置 speakers 时 cast[0] 用于引号台词）
+ *   books[bookId].backgrounds       通用背景池
+ *   books[bookId].chapters["1"]     某一章的逐段背景（优先）
+ *   books[bookId].speakers["1"]["3"] 可选的逐段说话人覆盖（null 表示旁白）
  */
 (function () {
   "use strict";
@@ -75,13 +77,17 @@
     return lines;
   }
 
-  function speakerOf(line, cast) {
+  function speakerOf(line, cast, override) {
     var t = String(line || "").trim();
     var lead = t.replace(/^[\s"'「」『』“”]+/, "");
-    if (/^[“「『]/.test(lead) || /^[^：:]{1,8}[：:]/.test(lead)) {
-      return (cast && cast[0]) || "";
-    }
-    return "";
+    var isDialogue = /^[“「『]/.test(t) || /^[^：:]{1,8}[：:]/.test(lead);
+    if (!isDialogue) return "";
+    if (override !== undefined) return override || "";
+    return (cast && cast[0]) || "";
+  }
+
+  function hasOwn(obj, key) {
+    return Object.prototype.hasOwnProperty.call(obj || {}, key);
   }
 
   function loadConfig() {
@@ -175,13 +181,15 @@
     var cfg = (scenesConfig.books && scenesConfig.books[book.id]) || {};
     var pool = cfg.backgrounds && cfg.backgrounds.length ? cfg.backgrounds : DEFAULT_POOL;
     var chapterBgs = (cfg.chapters && cfg.chapters[String(ready.chapterIndex)]) || null;
+    var chapterSpeakers = (cfg.speakers && cfg.speakers[String(ready.chapterIndex)]) || null;
     var imageBase = scenesConfig.imageBase || "assets/images/scenes/";
 
     var scenes = [];
     (ch.paragraphs || []).forEach(function (p, pi) {
       var key = (chapterBgs && chapterBgs[pi]) || pool[pi % pool.length];
+      var hasSpeaker = hasOwn(chapterSpeakers, String(pi));
       var lines = splitLines(p).map(function (line) {
-        return { text: line, speaker: speakerOf(line, cfg.cast) };
+        return { text: line, speaker: speakerOf(line, cfg.cast, hasSpeaker ? chapterSpeakers[String(pi)] : undefined) };
       });
       if (lines.length) scenes.push({ image: imageBase + key + ".jpg", key: key, lines: lines });
     });
