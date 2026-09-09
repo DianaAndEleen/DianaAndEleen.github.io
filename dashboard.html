@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人主页 · 青简</title>
+  <meta name="description" content="青简作者中心：管理你的作品、草稿与个人资料。">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='6' fill='%23e6b45c'/><path d='M6 6v12h4l2-2 2 2h4V6H14l-2 2-2-2z' fill='%236b4a13'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/account.css">
+</head>
+<body>
+  <div data-layout-topbar></div>
+
+  <main class="container account-page">
+    <div class="dashboard-head">
+      <div>
+        <h1 class="account-title">我的写作台</h1>
+        <p class="account-subtitle">管理作品、续写章节，或者把脑海里的新故事写下来。</p>
+      </div>
+      <a class="btn btn-primary" href="editor.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        新建作品
+      </a>
+    </div>
+
+    <div class="dashboard-layout">
+      <aside class="profile-card" data-profile-card></aside>
+
+      <section class="works-panel">
+        <div class="works-toolbar">
+          <div class="works-tabs" data-work-tabs>
+            <button class="tab active" type="button" data-filter="all">全部</button>
+            <button class="tab" type="button" data-filter="published">已发布</button>
+            <button class="tab" type="button" data-filter="draft">草稿箱</button>
+          </div>
+          <span class="tag" data-work-count>0 部作品</span>
+        </div>
+        <div class="work-list" data-work-list></div>
+      </section>
+    </div>
+  </main>
+
+  <div data-layout-footer></div>
+
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

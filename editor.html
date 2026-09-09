@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作品编辑 · 青简</title>
+  <meta name="description" content="青简作品编辑器：创建作品、编辑章节并发布。">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='6' fill='%23e6b45c'/><path d='M6 6v12h4l2-2 2 2h4V6H14l-2 2-2-2z' fill='%236b4a13'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/account.css">
+</head>
+<body>
+  <div data-layout-topbar></div>
+
+  <main class="container account-page">
+    <div class="editor-top">
+      <div>
+        <a class="section-more" href="dashboard.html">← 返回写作台</a>
+        <h1 class="account-title" data-editor-title>新建作品</h1>
+        <p class="account-subtitle" data-editor-subtitle>先写一个名字，再慢慢把它写完。</p>
+      </div>
+      <div class="form-actions" style="margin:0">
+        <button class="btn btn-ghost" type="button" data-save-draft>保存草稿</button>
+        <button class="btn btn-primary" type="button" data-publish>发布作品</button>
+      </div>
+    </div>
+
+    <div class="editor-layout">
+      <section class="editor-panel">
+        <h2>作品信息</h2>
+        <div class="form-grid">
+          <label class="field">
+            <span>作品名</span>
+            <input class="input" type="text" data-work-title placeholder="例如：夏日回声" maxlength="40">
+          </label>
+          <label class="field">
+            <span>分类</span>
+            <select class="select" data-work-category>
+              <option>同人</option>
+              <option>都市</option>
+              <option>言情</option>
+              <option>奇幻</option>
+              <option>科幻</option>
+              <option>悬疑</option>
+              <option>古风</option>
+              <option>其他</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>连载状态</span>
+            <select class="select" data-work-status>
+              <option>连载</option>
+              <option>已完结</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>标签（用逗号分隔）</span>
+            <input class="input" type="text" data-work-tags placeholder="治愈, 日常, 恋爱">
+          </label>
+        </div>
+        <label class="field">
+          <span>作品简介</span>
+          <textarea class="textarea" data-work-intro placeholder="用几句话告诉读者，这是一个怎样的故事。" maxlength="240"></textarea>
+        </label>
+
+        <h2 style="margin-top:34px">章节</h2>
+        <div class="chapter-list" data-chapter-list></div>
+        <button class="btn btn-ghost" type="button" data-add-chapter style="margin-top:16px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          添加一章
+        </button>
+      </section>
+
+      <aside class="editor-side">
+        <section class="side-card">
+          <h3>封面与状态</h3>
+          <div class="cover-preview" data-cover-preview></div>
+          <label class="field">
+            <span>选择封面</span>
+            <select class="select" data-work-cover></select>
+          </label>
+          <div class="editor-status">
+            <span>当前状态</span>
+            <b data-publish-state>草稿</b>
+          </div>
+          <div class="editor-status">
+            <span>累计字数</span>
+            <b data-word-count>0 字</b>
+          </div>
+          <button class="btn btn-primary" type="button" data-publish style="width:100%">发布 / 更新作品</button>
+        </section>
+
+        <section class="side-card">
+          <h3>写作提示</h3>
+          <p style="color:var(--text-muted);font-size:0.84rem;line-height:1.8;margin:0">
+            每个空行会被识别为一个自然段。保存草稿不会出现在书库；点击发布后，作品会自动进入现有书库、详情页和阅读页。
+          </p>
+        </section>
+
+        <section class="side-card danger-zone" data-danger-zone hidden>
+          <h3>删除作品</h3>
+          <p style="color:var(--text-muted);font-size:0.84rem;line-height:1.8;margin:0 0 14px">删除后无法恢复，请确认这部作品已经不再需要。</p>
+          <button class="btn btn-ghost" type="button" data-delete-work style="width:100%;color:var(--danger);border-color:color-mix(in srgb, var(--danger) 35%, var(--border))">删除这部作品</button>
+        </section>
+      </aside>
+    </div>
+  </main>
+
+  <div data-layout-footer></div>
+
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/editor.js"></script>
+</body>
+</html>

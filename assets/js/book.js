@@ -8,7 +8,7 @@
   function relatedHTML(book) {
     return (
       '<a class="book-card reveal" href="' + window.QJ.base + 'book.html?id=' + encodeURIComponent(book.id) + '">' +
-        '<div class="cover"><img src="' + window.QJ.esc(book.cover) + '" alt="" loading="lazy"><span class="cover-tag">' + window.QJ.esc(book.status) + '</span><span class="cover-rating">★ ' + book.rating.toFixed(1) + '</span></div>' +
+        '<div class="cover"><img src="' + window.QJ.esc(book.cover) + '" alt="" loading="lazy"><span class="cover-tag">' + window.QJ.esc(book.status) + '</span><span class="cover-rating">' + window.QJ.ratingText(book) + '</span></div>' +
         '<div class="book-meta"><h3 class="book-title">' + window.QJ.esc(book.title) + '</h3><div class="book-author">' + window.QJ.esc(book.author) + '</div></div>' +
       '</a>'
     );
@@ -27,6 +27,12 @@
       document.title = book.title + " · 青简";
       var tags = book.tags.map(function (t) { return '<span class="tag">' + window.QJ.esc(t) + '</span>'; }).join("");
       var statusCls = book.status === "已完结" ? "done" : "series";
+      var user = window.QJStore ? window.QJStore.currentUser() : null;
+      var editAction = user && book.ownerId === user.id
+        ? '<a class="btn btn-ghost" href="' + window.QJ.base + 'editor.html?id=' + encodeURIComponent(book.id) + '">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg> 编辑作品' +
+          '</a>'
+        : "";
 
       wrap.innerHTML =
         '<div class="book-hero">' +
@@ -39,7 +45,7 @@
             '<div class="book-stats">' +
               '<div class="stat-cell"><b>' + window.QJ.fmtWords(book.wordCount) + '</b><span>字数</span></div>' +
               '<div class="stat-cell"><b>' + book.chapters.length + '</b><span>章节</span></div>' +
-              '<div class="stat-cell"><b>★ ' + book.rating.toFixed(1) + '</b><span>评分</span></div>' +
+              '<div class="stat-cell"><b>' + window.QJ.ratingText(book) + '</b><span>评分</span></div>' +
               '<div class="stat-cell"><b>' + window.QJ.fmtNum(book.views) + '</b><span>阅读</span></div>' +
               '<div class="stat-cell"><b>' + window.QJ.fmtNum(book.likes) + '</b><span>收藏</span></div>' +
             '</div>' +
@@ -54,6 +60,7 @@
               '<button class="btn btn-ghost" data-like>' +
                 '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8z"/></svg> 收藏' +
               '</button>' +
+              editAction +
             '</div>' +
           '</div>' +
         '</div>';

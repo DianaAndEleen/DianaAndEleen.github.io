@@ -154,6 +154,65 @@ button { font-family: inherit; cursor: pointer; }
   gap: 10px;
 }
 
+.auth-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.auth-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-3);
+  color: var(--text-soft);
+  font-size: 0.84rem;
+  font-weight: 600;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.auth-link:hover { color: var(--accent); border-color: var(--accent); }
+.auth-link-primary {
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: var(--accent-ink);
+}
+.auth-link-primary:hover { color: var(--accent-ink); }
+.auth-logout { padding: 0 10px; }
+
+.auth-user {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 0 10px 0 5px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg-3);
+  color: var(--text-soft);
+  font-size: 0.84rem;
+  font-weight: 600;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.auth-user:hover { color: var(--accent); border-color: var(--accent); }
+.avatar-sm {
+  width: 29px;
+  height: 29px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-family: var(--font-serif);
+  font-size: 0.84rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
 .icon-btn {
   width: 38px;
   height: 38px;
@@ -923,6 +982,7 @@ button { font-family: inherit; cursor: pointer; }
   .nav { display: none; position: absolute; top: 66px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 4px; padding: 12px 22px 18px; background: var(--bg-glass); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
   .nav.open { display: flex; }
   .menu-toggle { display: grid; }
+  .auth-user-name, .auth-logout { display: none; }
   .search-box { width: 170px; }
   .search-box:focus-within { width: 200px; }
   .book-hero { grid-template-columns: 1fr; }
@@ -935,6 +995,7 @@ button { font-family: inherit; cursor: pointer; }
 @media (max-width: 520px) {
   .container { padding: 0 16px; }
   .brand-name { font-size: 1.1rem; }
+  .auth-actions { display: none; }
   .search-box { width: 46px; padding: 0; justify-content: center; }
   .search-box input { display: none; }
   .search-box:focus-within { width: 46px; }

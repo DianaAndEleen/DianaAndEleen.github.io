@@ -19,7 +19,7 @@
         '<div class="cover">' +
           '<img src="' + window.QJ.esc(book.cover) + '" alt="' + window.QJ.esc(book.title) + ' 封面" loading="lazy">' +
           '<span class="cover-tag ' + statusCls + '">' + window.QJ.esc(book.status) + '</span>' +
-          '<span class="cover-rating">★ ' + book.rating.toFixed(1) + '</span>' +
+          '<span class="cover-rating">' + window.QJ.ratingText(book) + '</span>' +
         '</div>' +
         '<div class="book-meta">' +
           '<h3 class="book-title">' + window.QJ.esc(book.title) + '</h3>' +

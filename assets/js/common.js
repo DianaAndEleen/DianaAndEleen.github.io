@@ -23,6 +23,17 @@
     return window.QJ.fmtNum(n) + "字";
   };
 
+  window.QJ.ratingText = function (book) {
+    return book && Number(book.rating) > 0 ? "★ " + Number(book.rating).toFixed(1) : "新作";
+  };
+
+  window.QJ.dateText = function (value) {
+    if (!value) return "";
+    var d = new Date(value);
+    if (Number.isNaN(d.getTime())) return "";
+    return d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
+  };
+
   window.QJ.esc = function (s) {
     return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
