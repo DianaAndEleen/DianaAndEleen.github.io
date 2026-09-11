@@ -41,7 +41,7 @@
       var stats = document.querySelector("[data-stats]");
       if (stats) {
         stats.innerHTML =
-          '<div class="stat"><b>' + info.books + '</b><span>部作品</span></div>' +
+          '<div class="stat"><b>' + info.books + '</b><span>篇琳嘉文</span></div>' +
           '<div class="stat"><b>' + window.QJ.fmtNum(info.words) + '</b><span>累积字数</span></div>' +
           '<div class="stat"><b>' + window.QJ.fmtNum(info.chapters) + '</b><span>章节</span></div>' +
           '<div class="stat"><b>' + window.QJ.fmtNum(follows) + '</b><span>篇追更</span></div>';

@@ -24,7 +24,7 @@
         return;
       }
 
-      document.title = book.title + " · 青简";
+      document.title = book.title + " · 琳嘉女孩 同人馆";
       var tags = book.tags.map(function (t) { return '<span class="tag">' + window.QJ.esc(t) + '</span>'; }).join("");
       var statusCls = book.status === "已完结" ? "done" : "series";
       wrap.innerHTML =
@@ -78,7 +78,7 @@
       // Like button
       var like = wrap.querySelector("[data-like]");
       like.addEventListener("click", function () {
-        window.QJ.toast("收藏成功！这本书已被加入你的书架（演示）");
+        window.QJ.toast("收藏成功！已加入你的书架（演示）");
         like.querySelector("svg").style.fill = "currentColor";
       });
 

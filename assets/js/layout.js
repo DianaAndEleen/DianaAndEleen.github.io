@@ -11,7 +11,7 @@
       '<div class="container topbar-inner">' +
         '<a class="brand" href="' + base + 'index.html">' +
           '<span class="brand-mark">' + bookIcon + '</span>' +
-          '<span class="brand-name">青简<small>同人书苑</small></span>' +
+          '<span class="brand-name">琳嘉女孩<small>同人馆</small></span>' +
         '</a>' +
         '<nav class="nav" data-nav>' +
           '<a href="' + base + 'index.html">首页</a>' +
@@ -39,8 +39,8 @@
         '<div class="footer-grid">' +
           '<div class="footer-col">' +
             '<span class="brand-mark">' + bookIcon + '</span>' +
-            '<div class="brand-name" style="margin-top:10px">青简<small>同人书苑</small></div>' +
-            '<p>一个收录同人创作与原创故事的在线阅读平台。愿每一段文字，都被温柔以待。</p>' +
+            '<div class="brand-name" style="margin-top:10px">琳嘉女孩<small>同人馆</small></div>' +
+            '<p>收录 A-SOUL 嘉然与乃琳的同人创作。愿每一段属于她们的故事，都被温柔以待。</p>' +
           '</div>' +
           '<div class="footer-col">' +
             '<h5>快速导航</h5>' +
@@ -50,12 +50,12 @@
             '<a href="' + base + 'library.html?sort=new">最近更新</a>' +
           '</div>' +
           '<div class="footer-col">' +
-            '<h5>热门分类</h5>' +
-            '<a href="' + base + 'library.html?cat=奇幻">奇幻</a>' +
-            '<a href="' + base + 'library.html?cat=科幻">科幻</a>' +
-            '<a href="' + base + 'library.html?cat=悬疑">悬疑</a>' +
-            '<a href="' + base + 'library.html?cat=都市">都市</a>' +
-            '<a href="' + base + 'library.html?cat=古风">古风</a>' +
+            '<h5>琳嘉标签</h5>' +
+            '<a href="' + base + 'library.html?q=乃琳">乃琳</a>' +
+            '<a href="' + base + 'library.html?q=嘉然">嘉然</a>' +
+            '<a href="' + base + 'library.html?q=A-SOUL">A-SOUL</a>' +
+            '<a href="' + base + 'library.html?q=短篇">短篇</a>' +
+            '<a href="' + base + 'library.html?q=治愈">治愈</a>' +
           '</div>' +
           '<div class="footer-col">' +
             '<h5>关于本站</h5>' +
@@ -66,7 +66,7 @@
           '</div>' +
         '</div>' +
         '<div class="footer-bottom">' +
-          '<span>© 2026 青简 · 同人书苑 · 本站为演示项目，内容为虚构原创</span>' +
+          '<span>© 2026 琳嘉女孩 · 同人馆 · 粉丝向同人收集站，与 A-SOUL 官方无关，作品版权归各原作者所有</span>' +
           '<span>由 GitHub Pages 免费驱动</span>' +
         '</div>' +
       '</div>' +

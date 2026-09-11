@@ -1,6 +1,6 @@
-# 青简 · 同人书苑
+# 琳嘉女孩 · 同人馆
 
-一个纯静态的原创/同人小说阅读站，使用 HTML + CSS + 原生 JavaScript 构建，
+一个纯静态的 A-SOUL 嘉然 × 乃琳 同人文阅读站，使用 HTML + CSS + 原生 JavaScript 构建，
 部署在 GitHub Pages。没有构建步骤，也不需要后端。
 
 ## 亮点：沉浸剧场（Galgame 式阅读）

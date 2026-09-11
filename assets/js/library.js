@@ -75,7 +75,7 @@
         var list = window.QJB.filter(data, cat);
         if (q) list = window.QJB.search({ books: list }, q);
         list = sorted(list, sort);
-        count.textContent = "共 " + list.length + " 部作品";
+        count.textContent = "共 " + list.length + " 篇琳嘉文";
         if (list.length === 0) {
           grid.innerHTML = '<div class="empty" style="grid-column:1/-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><p>没有找到相关作品</p></div>';
           return;
@@ -106,7 +106,7 @@
 
       var title = document.querySelector("[data-page-title]");
       if (title && q) title.textContent = "搜索：「" + q + "」";
-      else if (title) title.textContent = "全部书库";
+      else if (title) title.textContent = "琳嘉书库";
 
       render();
     }).catch(function () {
