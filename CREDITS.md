@@ -106,3 +106,61 @@
 《日薄西山》由作者提供的 Markdown 文稿导入：原文按 `---` 分出的 29 个场景在站内合并为
 单章「全文」（章节不拆分，剧场模式仍按原文场景依次切换背景），正文文字未作改动；
 末尾的 `<!-- 未完待续 -->` 标记对应书库中的「连载」状态。
+
+## 琳嘉女孩话题同人（B 站话题存档）
+
+以下 41 篇同人小说取自 B 站话题
+[琳嘉女孩💤💤💤💤](https://www.bilibili.com/v/topic/detail?topic_id=1062929)（topic_id `1062929`），
+按发布时间先后收录。作品版权归各原作者所有，此处仅作整理收录；
+如需转载，请先联系原作者。
+
+收录方式说明：原帖是「图文 / 专栏」投稿，长图同人文的正文由本地 OCR 从配图中提取
+（OCR 结果可能有少量错字），文字投稿则直接采用原帖正文；仅整理了换行与段落，
+没有改动文字内容。
+
+| 作品 | 作者署名 | 原文地址 |
+| --- | --- | --- |
+| 《锈蚀的锚与潮汐》 | 橘子味嘉心奶糖 | https://www.bilibili.com/opus/1048325727997394951 |
+| 《港式卧底线琳嘉》 | 橘子味嘉心奶糖 | https://www.bilibili.com/opus/1060932131311583232 |
+| 《情比金坚》 | 橘子味嘉心奶糖 | https://www.bilibili.com/opus/1062803354062684167 |
+| 《季节总是夏季》 | 我产琳嘉 | https://www.bilibili.com/opus/1069056856547131395 |
+| 《琥珀日光》 | 橘子味嘉心奶糖 | https://www.bilibili.com/opus/1069478493477142534 |
+| 《我求你们别麦了》 | 我产琳嘉 | https://www.bilibili.com/opus/1073003025258250258 |
+| 《坏猫》 | 我产琳嘉 | https://www.bilibili.com/opus/1073511957395406849 |
+| 《琴》 | 我产琳嘉 | https://www.bilibili.com/opus/1073766575915401257 |
+| 《潮湿》 | 我产琳嘉 | https://www.bilibili.com/opus/1073767473593974792 |
+| 《初智齿》 | 我产琳嘉 | https://www.bilibili.com/opus/1073768212295843862 |
+| 《生长痛》 | 我产琳嘉 | https://www.bilibili.com/opus/1073768899490611221 |
+| 《小愚蠢》 | 我产琳嘉 | https://www.bilibili.com/opus/1078423299750363143 |
+| 《再》 | 我产琳嘉 | https://www.bilibili.com/opus/1085837383966916615 |
+| 《混合》 | 我产琳嘉 | https://www.bilibili.com/opus/1091035402493493254 |
+| 《命运》 | 我产琳嘉 | https://www.bilibili.com/opus/1096816153549864993 |
+| 《脱脂牛奶》 | 我产琳嘉 | https://www.bilibili.com/opus/1098619219489062918 |
+| 《独属于你我的时间》 | 我产琳嘉 | https://www.bilibili.com/opus/1101433269169160193 |
+| 《落日》 | 我产琳嘉 | https://www.bilibili.com/opus/1135165023183699973 |
+| 《安慰》 | 山野下呀 | https://www.bilibili.com/opus/1173519450550304775 |
+| 《无害的羊羔》 | 月亮要开花 | https://www.bilibili.com/opus/1197840179580108821 |
+| 《风月》 | 橘子味嘉心奶糖 | https://www.bilibili.com/opus/1204547892022345736 |
+| 《无风带》 | 橘子味嘉心奶糖 | https://www.bilibili.com/opus/1205274720714358802 |
+| 《余温》 | 橘子味嘉心奶糖 | https://www.bilibili.com/opus/1206389445150900257 |
+| 《如盐》 | 橘子味嘉心奶糖 | https://www.bilibili.com/opus/1216420023398039553 |
+| 《有着你便可》 | 橘子味嘉心奶糖 | https://www.bilibili.com/opus/1217157241656836102 |
+| 《半小时车程》 | 我产琳嘉 | https://www.bilibili.com/opus/1217157623906828293 |
+| 《归途》 | 依枝瑶 | https://www.bilibili.com/opus/1218965985542799361 |
+| 《小龙虾拯救世界》 | 橘子味嘉心奶糖 | https://www.bilibili.com/opus/1219750091962712084 |
+| 《一款Soulmate》 | 橘子味嘉心奶糖 | https://www.bilibili.com/opus/1221989024047038471 |
+| 《枝江闪景》 | 我产琳嘉 | https://www.bilibili.com/opus/1221999190270279682 |
+| 《你燕京虾吗》 | 我产琳嘉 | https://www.bilibili.com/opus/1227972931395518464 |
+| 《雨夜》 | 琳嘉女孩周报 | https://www.bilibili.com/opus/1230903533587398665 |
+| 《收敛水》 | 我产琳嘉 | https://www.bilibili.com/opus/1230918780729688083 |
+| 《落》 | 橘子味嘉心奶糖 | https://www.bilibili.com/opus/1232014023198769172 |
+| 《重庆游》 | 琳嘉女孩周报 | https://www.bilibili.com/opus/1233788626373967897 |
+| 《琴键上的锚点》 | 橘子味嘉心奶糖 | https://www.bilibili.com/opus/1234411121734058009 |
+| 《卧底然与联络员琳》 | 橘子味嘉心奶糖 | https://www.bilibili.com/opus/1235339453152624644 |
+| 《局部小雨》 | 我产琳嘉 | https://www.bilibili.com/opus/1235749373402415113 |
+| 《洛希极限》 | 琳嘉女孩周报 | https://www.bilibili.com/opus/1236274828335382528 |
+| 《钝感》 | 橘子味嘉心奶糖 | https://www.bilibili.com/opus/1236470588602581012 |
+| 《对上司产生那种欲望怎么办（三）》 | 琳嘉女孩周报 | https://www.bilibili.com/opus/1238960638876713033 |
+
+《余温》为连载长篇，站内按原帖顺序合并为 11 章；《锈蚀的锚与潮汐》合并了原帖的
+上、下两篇。其余作品均为单篇全文。
