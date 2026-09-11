@@ -66,6 +66,7 @@
 | `peony.jpg` | `Z68xcaEgkkk` | https://unsplash.com/photos/Z68xcaEgkkk |
 
 `assets/images/covers/cover-13.jpg` 由 `cherry-street.jpg` 裁切生成，来源同上。
+`assets/images/covers/cover-14.jpg` 由 `ocean-sunset.jpg` 居中裁切生成，来源同上。
 
 ## 剧场模式配乐
 
@@ -97,6 +98,10 @@
 | --- | --- | --- |
 | 《清晨的色彩》 | 青简投稿 | 站内首发 |
 | 《当我们谈论爱》 | 青简投稿 | https://write.as/y5p3rqi50epxl |
+| 《日薄西山》 | 青简投稿 | 由作者提供的 Markdown 文稿（仓库根目录 `日薄西山.md`） |
 
 《当我们谈论爱》的正文抓取自上述 Write.as 页面，收录时只做了两处技术处理：
 把原文的换行整理为段落、并按站内格式写入 `data/books.json`；正文文字未作改动。
+
+《日薄西山》由作者提供的 Markdown 文稿导入：原文用 `---` 分隔的 29 个场景对应站内的
+29 节，正文文字未作改动；末尾的 `<!-- 未完待续 -->` 标记对应书库中的「连载」状态。
