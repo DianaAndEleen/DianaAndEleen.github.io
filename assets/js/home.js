@@ -37,13 +37,26 @@
     window.QJB.load().then(function (data) {
       // Hero stats
       var info = window.QJB.novelInfo(data);
+      var follows = data.books.reduce(function (s, b) { return s + (Number(b.likes) || 0); }, 0);
       var stats = document.querySelector("[data-stats]");
       if (stats) {
         stats.innerHTML =
           '<div class="stat"><b>' + info.books + '</b><span>部作品</span></div>' +
           '<div class="stat"><b>' + window.QJ.fmtNum(info.words) + '</b><span>累积字数</span></div>' +
           '<div class="stat"><b>' + window.QJ.fmtNum(info.chapters) + '</b><span>章节</span></div>' +
-          '<div class="stat"><b>' + window.QJ.fmtNum(9321 + 7104) + '</b><span>篇追更</span></div>';
+          '<div class="stat"><b>' + window.QJ.fmtNum(follows) + '</b><span>篇追更</span></div>';
+      }
+
+      // 剧场入口：永远指向一本仍然存在的书（优先选已在 scenes.json 里配好场景的）
+      var theaterIds = ["morning-colors", "sunset-west", "talk-about-love"];
+      var theaterBook = data.books.filter(function (b) { return theaterIds.indexOf(b.id) > -1; })[0] || data.books[0];
+      if (theaterBook) {
+        Array.prototype.forEach.call(document.querySelectorAll("[data-theater-link]"), function (a) {
+          a.href = window.QJ.base + "read.html?id=" + encodeURIComponent(theaterBook.id) + "&c=1&mode=theater";
+        });
+        Array.prototype.forEach.call(document.querySelectorAll("[data-theater-title]"), function (el) {
+          el.textContent = theaterBook.title;
+        });
       }
 
       // Featured book banner (highest rated)
