@@ -68,7 +68,7 @@
 《清晨的色彩》《当我们谈论爱》的封面由作者提供原图，收录时统一裁切为 600×900 的 JPEG：
 `cover-13.jpg`（清晨的色彩）、`cover-09.jpg`（当我们谈论爱）。
 
-`assets/images/covers/cover-14.jpg` 由 `ocean-sunset.jpg` 居中裁切生成，来源同上。
+其余书目的封面改用 AI 生成的定制插画，逐本对应关系与生成方式见下文「封面与横幅」。
 
 ## 剧场模式配乐
 
@@ -90,6 +90,39 @@
 
 `assets/images/covers/`、`assets/images/banners/` 为项目原有素材，
 如用于正式发布，请自行确认其来源与授权。
+
+其中 50 张封面已替换为按书目定制的 AI 生成插画：模型 `gpt-image-2`，
+2K 分辨率、2:3 竖版构图，提示词按每本书的题材、场景与人物关系逐本撰写
+（琳嘉系列书目以嘉然、乃琳的设定图为参考图），出图后居中裁切并统一压缩为
+600×900 的 JPEG。原图保留在本地 `sider-batch/out-封面2/`，不入库。
+
+| 文件 | 作品 | 文件 | 作品 |
+| --- | --- | --- | --- |
+| `cover-01.jpg` | 雾海低语 | `cover-02.jpg` | 长夜燃灯 |
+| `cover-03.jpg` | 星河渡口 | `cover-04.jpg` | 春山可望 |
+| `cover-05.jpg` | 巷口咖啡店 | `cover-06.jpg` | 镜中城邦 |
+| `cover-07.jpg` | 拾荒者手记 | `cover-08.jpg` | 潮汐信 |
+| `cover-14.jpg` | 日薄西山 | `cover-15.jpg` | 锈蚀的锚与潮汐 |
+| `cover-16.jpg` | 港式卧底线琳嘉 | `cover-17.jpg` | 情比金坚 |
+| `cover-18.jpg` | 季节总是夏季 | `cover-19.jpg` | 琥珀日光 |
+| `cover-20.jpg` | 我求你们别麦了 | `cover-21.jpg` | 坏猫 |
+| `cover-22.jpg` | 琴 | `cover-23.jpg` | 潮湿 |
+| `cover-24.jpg` | 初智齿 | `cover-25.jpg` | 生长痛 |
+| `cover-26.jpg` | 小愚蠢 | `cover-27.jpg` | 再 |
+| `cover-28.jpg` | 混合 | `cover-29.jpg` | 命运 |
+| `cover-30.jpg` | 脱脂牛奶 | `cover-31.jpg` | 独属于你我的时间 |
+| `cover-32.jpg` | 落日 | `cover-33.jpg` | 安慰 |
+| `cover-34.jpg` | 无害的羊羔 | `cover-35.jpg` | 风月 |
+| `cover-36.jpg` | 无风带 | `cover-37.jpg` | 余温 |
+| `cover-38.jpg` | 如盐 | `cover-39.jpg` | 有着你便可 |
+| `cover-40.jpg` | 半小时车程 | `cover-41.jpg` | 归途 |
+| `cover-42.jpg` | 小龙虾拯救世界 | `cover-43.jpg` | 一款Soulmate |
+| `cover-44.jpg` | 枝江闪景 | `cover-45.jpg` | 你燕京虾吗 |
+| `cover-46.jpg` | 雨夜 | `cover-47.jpg` | 收敛水 |
+| `cover-48.jpg` | 落 | `cover-49.jpg` | 重庆游 |
+| `cover-50.jpg` | 琴键上的锚点 | `cover-51.jpg` | 卧底然与联络员琳 |
+| `cover-52.jpg` | 局部小雨 | `cover-53.jpg` | 洛希极限 |
+| `cover-54.jpg` | 钝感 | `cover-55.jpg` | 对上司产生那种欲望怎么办（三） |
 
 ## 收录作品出处
 
