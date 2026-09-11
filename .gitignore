@@ -1,6 +1,11 @@
 # Chrome / preview build artifacts (local only, never publish)
 build/
 
+# 本地书库管理台（只在自己电脑上跑，绝不发布）
+local-admin/
+data/.local-backups/
+data/books.json.tmp
+
 # OS / editor cruft
 .DS_Store
 Thumbs.db
