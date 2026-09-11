@@ -3,6 +3,15 @@
   "imageBase": "assets/images/scenes/",
   "note": "每部小说一段配置：mood 决定配乐氛围，bgm 可选真实音频，cast 是角色名；chapters 按章节逐段给出背景图，speakers 可按段落覆盖说话人（null 表示旁白）。新增小说时在这里补一段即可。",
   "books": {
+    "talk-about-love": {
+      "mood": "rain",
+      "cast": ["乃琳", "嘉然"],
+      "backgrounds": ["bedroom-cozy", "bedroom-sunlight", "night-bokeh", "city-rain-night", "rain-window", "coffee-table", "cafe-window", "white-bouquet", "morning-light", "city-street"],
+      "chapters": {
+        "1": ["bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "office-hall", "workspace", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "night-bokeh", "bedroom-cozy", "night-bokeh", "night-bokeh", "bedroom-cozy", "night-bokeh", "night-bokeh", "city-rain-night", "city-rain-night", "city-rain-night", "city-rain-night", "rain-window", "rain-window", "rain-window", "rain-window", "coffee-table", "coffee-table", "cafe-window", "cafe-window", "cafe-window", "rain-window", "coffee-table", "coffee-table", "white-bouquet", "white-bouquet", "morning-light"]
+      },
+      "speakers": {"1": {"3": "嘉然", "9": "乃琳", "10": "乃琳", "13": "嘉然", "14": "乃琳", "15": "嘉然", "16": "嘉然", "17": "乃琳", "18": "嘉然", "19": "乃琳", "20": "嘉然", "21": "嘉然", "23": "嘉然", "24": "嘉然", "25": "乃琳", "26": "嘉然", "28": "嘉然", "30": "乃琳", "32": "嘉然", "33": "乃琳", "34": "嘉然", "35": "乃琳"}}
+    },
     "mirage-whisper": {
       "mood": "sea",
       "cast": ["阿澄"],
