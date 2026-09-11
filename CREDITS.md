@@ -65,7 +65,9 @@
 | `desk-work.jpg` | `7FPN2S533D8` | https://unsplash.com/photos/7FPN2S533D8 |
 | `peony.jpg` | `Z68xcaEgkkk` | https://unsplash.com/photos/Z68xcaEgkkk |
 
-`assets/images/covers/cover-13.jpg` 由 `cherry-street.jpg` 裁切生成，来源同上。
+《清晨的色彩》《当我们谈论爱》的封面由作者提供原图，收录时统一裁切为 600×900 的 JPEG：
+`cover-13.jpg`（清晨的色彩）、`cover-09.jpg`（当我们谈论爱）。
+
 `assets/images/covers/cover-14.jpg` 由 `ocean-sunset.jpg` 居中裁切生成，来源同上。
 
 ## 剧场模式配乐
