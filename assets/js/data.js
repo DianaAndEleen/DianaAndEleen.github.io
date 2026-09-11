@@ -12,8 +12,6 @@
           return r.json();
         })
         .then(function (data) {
-          var local = window.QJStore ? window.QJStore.publicWorks() : [];
-          if (local.length) data.books = local.concat(data.books || []);
           cache = data;
           return data;
         });

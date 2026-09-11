@@ -20,19 +20,19 @@
 - 书籍详情页的「沉浸剧场」按钮；
 - 直接访问 `read.html?id=<书id>&c=<章节号>&mode=theater`。
 
-## 作者中心（本地账号原型）
+## 纯静态阅读站（无需登录）
 
-站点新增了一套可以直接体验的写作流程：
+站点当前是完整的静态阅读站：打开首页即可浏览书库、查看详情并阅读正文，
+没有任何登录、注册或权限校验，也不需要后端服务。
 
-- `login.html`：注册、登录与体验账号；
-- `dashboard.html`：个人主页、作者资料、作品与草稿管理；
-- `editor.html`：创建作品、编辑章节、选择封面、保存草稿与发布；
-- 发布后的作品会自动合并进现有书库、详情页和阅读页。
+- 所有小说内容来自 `data/books.json`，剧场配置来自 `data/scenes.json`；
+- 读者侧只读取这些 JSON，不写任何服务端数据；
+- 曾经用于演示的「作者中心 / 登录注册」（`login.html`、`dashboard.html`、
+  `editor.html`，数据存在浏览器 `localStorage`）已从站点移除，相关代码可在
+  Git 历史里找到。
 
-当前版本为了保持 GitHub Pages 的纯静态部署，账号、会话和作品数据保存在
-浏览器 `localStorage` 中，只适合本地体验和产品形态验证，不等同于生产级
-账号系统。需要跨设备同步、真实密码安全与多人协作时，建议下一步接入
-Supabase、Firebase 或自建 API；页面层已经按可替换的数据层组织。
+如果之后要恢复在线写作与账号体系（Supabase / Firebase / 自建 API），
+建议先并行保留一份静态阅读入口，等接口就绪再把写作台接回导航。
 
 ## 目录结构
 
@@ -41,17 +41,12 @@ index.html              首页
 library.html            书库
 book.html               书籍详情
 read.html               阅读页（含剧场模式）
-login.html              登录 / 注册
-dashboard.html          个人主页与作品管理
-editor.html             作品与章节编辑器
 data/books.json         小说正文数据
 data/scenes.json        剧场模式配置（背景 / 配乐 / 角色名）
 assets/css/style.css    站点样式
 assets/css/theater.css  剧场模式样式
-assets/css/account.css  作者中心样式
 assets/js/music.js      Web Audio 实时配乐
 assets/js/theater.js    剧场模式引擎
-assets/js/store.js      本地账号、作品与草稿数据层
 assets/images/scenes/   剧场模式背景图
 CREDITS.md              素材来源与许可
 ```

@@ -18,11 +18,9 @@
           '<a href="' + base + 'library.html">书库</a>' +
           '<a href="' + base + 'library.html?sort=rank">排行榜</a>' +
           '<a href="' + base + 'library.html?sort=new">最近更新</a>' +
-          '<a href="' + base + 'dashboard.html">写作台</a>' +
           '<a href="#about">关于</a>' +
         '</nav>' +
         '<div class="topbar-actions">' +
-          '<div class="auth-actions" data-auth-area></div>' +
           '<form class="search-box" data-search role="search">' +
             '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>' +
             '<input type="search" placeholder="搜索书名 / 作者 / 标签…">' +
@@ -61,9 +59,9 @@
           '</div>' +
           '<div class="footer-col">' +
             '<h5>关于本站</h5>' +
-            '<a href="' + base + 'dashboard.html">作者中心</a>' +
-            '<a href="' + base + 'login.html">登录 / 注册</a>' +
             '<a href="' + base + 'data/books.json">数据结构</a>' +
+            '<a href="' + base + 'CREDITS.md" target="_blank" rel="noopener">素材来源</a>' +
+            '<a href="' + base + 'README.md" target="_blank" rel="noopener">项目说明</a>' +
             '<a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>' +
           '</div>' +
         '</div>' +
@@ -81,39 +79,7 @@
     if (foot) foot.innerHTML = footer;
   }
 
-  function renderAuth() {
-    var area = document.querySelector("[data-auth-area]");
-    if (!area) return;
-    var user = window.QJStore ? window.QJStore.currentUser() : null;
-    if (!user) {
-      area.innerHTML =
-        '<a class="auth-link" href="' + base + 'login.html">登录</a>' +
-        '<a class="auth-link auth-link-primary" href="' + base + 'login.html?tab=register">注册</a>';
-      return;
-    }
-    var initial = window.QJ.esc ? window.QJ.esc(user.name.slice(0, 1)) : user.name.slice(0, 1);
-    var name = window.QJ.esc ? window.QJ.esc(user.name) : user.name;
-    area.innerHTML =
-      '<a class="auth-user" href="' + base + 'dashboard.html" title="进入个人主页">' +
-        '<span class="avatar-sm" style="background:' + user.avatarColor + '">' + initial + '</span>' +
-        '<span class="auth-user-name">' + name + '</span>' +
-      '</a>' +
-      '<button class="auth-link auth-logout" type="button" data-logout>退出</button>';
-    var logout = area.querySelector("[data-logout]");
-    if (logout) {
-      logout.addEventListener("click", function () {
-        window.QJStore.logout();
-        renderAuth();
-      });
-    }
-  }
-
   document.addEventListener("DOMContentLoaded", function () {
     inject();
-    renderAuth();
-    if (window.QJStore) window.QJStore.ready().then(renderAuth);
   });
-
-  window.addEventListener("qj:auth", renderAuth);
-  window.addEventListener("qj:store-ready", renderAuth);
 })();
