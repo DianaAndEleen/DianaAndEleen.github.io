@@ -112,6 +112,129 @@
       airFreq: 500,
       chordDur: 9,
       bellRate: 0.6
+    },
+
+    /* 《清晨的色彩》逐场景配乐：每个 mood 对应一类情绪，剧场模式会随场景切换 */
+    lazy: {
+      label: "低电量",
+      chords: [[45, 52, 57, 60], [43, 50, 55, 59], [41, 48, 53, 57], [45, 52, 57, 62]],
+      scale: [57, 60, 62, 64, 67, 69, 72],
+      padGain: 0.13,
+      bellGain: 0.07,
+      air: 0.05,
+      airFreq: 480,
+      chordDur: 10,
+      bellRate: 0.35
+    },
+    memory: {
+      label: "回忆",
+      chords: [[55, 62, 66, 69], [53, 60, 64, 67], [50, 57, 62, 65], [48, 55, 60, 64]],
+      scale: [62, 64, 66, 69, 71, 74, 76, 78],
+      padGain: 0.13,
+      bellGain: 0.12,
+      air: 0.04,
+      airFreq: 820,
+      chordDur: 9,
+      bellRate: 0.6
+    },
+    playful: {
+      label: "俏皮",
+      chords: [[57, 64, 69, 71], [60, 67, 72, 74], [55, 62, 67, 69], [53, 60, 65, 69]],
+      scale: [64, 67, 69, 71, 74, 76, 79, 81],
+      padGain: 0.11,
+      bellGain: 0.17,
+      air: 0.04,
+      airFreq: 980,
+      chordDur: 5.6,
+      bellRate: 1.25
+    },
+    bloom: {
+      label: "心动",
+      chords: [[53, 60, 65, 69], [55, 62, 67, 71], [57, 64, 69, 72], [52, 59, 64, 67]],
+      scale: [65, 67, 69, 72, 74, 76, 79, 81],
+      padGain: 0.13,
+      bellGain: 0.16,
+      air: 0.032,
+      airFreq: 1000,
+      chordDur: 8.6,
+      bellRate: 0.9
+    },
+    cafe: {
+      label: "午后咖啡",
+      chords: [[55, 59, 64, 67], [53, 57, 62, 65], [51, 55, 60, 64], [57, 60, 65, 69]],
+      scale: [60, 62, 64, 67, 69, 71, 72, 74],
+      padGain: 0.11,
+      bellGain: 0.15,
+      air: 0.05,
+      airFreq: 700,
+      chordDur: 6.4,
+      bellRate: 1.1
+    },
+    warm: {
+      label: "烟火",
+      chords: [[53, 60, 64, 67], [50, 57, 62, 65], [48, 55, 60, 64], [55, 62, 65, 69]],
+      scale: [60, 62, 65, 67, 69, 72, 74, 77],
+      padGain: 0.14,
+      bellGain: 0.12,
+      air: 0.055,
+      airFreq: 600,
+      chordDur: 7.4,
+      bellRate: 0.7
+    },
+    dusk: {
+      label: "黄昏",
+      chords: [[45, 52, 57, 60], [43, 50, 55, 58], [41, 48, 53, 56], [44, 51, 56, 60]],
+      scale: [57, 60, 62, 64, 67, 69, 72],
+      padGain: 0.14,
+      bellGain: 0.09,
+      air: 0.06,
+      airFreq: 520,
+      chordDur: 10,
+      bellRate: 0.45
+    },
+    night: {
+      label: "夜色",
+      chords: [[41, 48, 53, 56], [43, 50, 55, 58], [38, 45, 50, 53], [40, 47, 52, 55]],
+      scale: [53, 56, 58, 60, 63, 65, 68, 70],
+      padGain: 0.13,
+      bellGain: 0.08,
+      air: 0.03,
+      airFreq: 380,
+      chordDur: 11,
+      bellRate: 0.3
+    },
+    dream: {
+      label: "梦境",
+      chords: [[50, 57, 61, 64], [52, 59, 63, 66], [48, 55, 59, 62], [55, 62, 66, 69]],
+      scale: [62, 64, 66, 68, 70, 73, 75, 78],
+      padGain: 0.15,
+      bellGain: 0.13,
+      air: 0.028,
+      airFreq: 1050,
+      chordDur: 12.5,
+      bellRate: 0.5
+    },
+    tension: {
+      label: "屏息",
+      chords: [[38, 45, 50, 53], [38, 44, 50, 53], [37, 44, 49, 52], [38, 45, 49, 52]],
+      scale: [50, 53, 56, 57, 60, 62, 65, 68],
+      padGain: 0.12,
+      bellGain: 0.06,
+      air: 0.045,
+      airFreq: 300,
+      chordDur: 9,
+      bellRate: 0.22
+    },
+    glow: {
+      label: "暖光",
+      chords: [[55, 62, 67, 71], [57, 64, 69, 72], [52, 59, 64, 69], [53, 60, 65, 69]],
+      scale: [64, 67, 69, 71, 74, 76, 79, 83],
+      padGain: 0.15,
+      bellGain: 0.17,
+      air: 0.035,
+      airFreq: 1080,
+      chordDur: 8.4,
+      bellRate: 1
     }
   };
 
@@ -330,7 +453,12 @@
     window.addEventListener("touchstart", handler, { passive: true });
   }
 
-  function start(key) {
+  /**
+   * 开始播放某个氛围。
+   * `fadeSeconds` 不传时沿用旧的 0.6s 淡出 / 2.6s 淡入；
+   * 剧场模式在场景切换时会传一个稍长的值，让换场像一次呼吸而不是一次切断。
+   */
+  function start(key, fadeSeconds) {
     if (!MOODS[key]) key = "sea";
     ensureContext();
     if (!ctx) return false;
@@ -339,7 +467,9 @@
       return true;
     }
 
-    if (playing) stop(0.6);
+    var inFade = fadeSeconds ? fadeSeconds : 2.6;
+    var outFade = fadeSeconds ? Math.max(0.8, fadeSeconds * 0.6) : 0.6;
+    if (playing) stop(outFade);
 
     moodKey = key;
     mood = MOODS[key];
@@ -357,7 +487,7 @@
     clearInterval(scheduler);
     scheduler = setInterval(scheduleAhead, 400);
 
-    unlock(function () { fade(targetGain(), 2.6); });
+    unlock(function () { fade(targetGain(), inFade); });
     bindUnlock();
     return true;
   }

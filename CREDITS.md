@@ -70,12 +70,32 @@
 
 其余书目的封面改用 AI 生成的定制插画，逐本对应关系与生成方式见下文「封面与横幅」。
 
+## 《清晨的色彩》剧场场景插画
+
+`assets/images/scenes/morning-colors/` 里的 30 张场景图是 AI 生成的定制插画
+（`ch1-01` … `ch4-03`，每张 1600×900）。生成方式与封面一致：
+
+- 引擎：Sider 的图像生成接口，模型 `gpt-image-2`，`2K` / `16:9` / `medium`；
+- 参考图：`sider-batch/refs/嘉然.png`、`sider-batch/refs/乃琳.png`（角色设定图），
+  外加一张由这两张设定图生成的**全篇画风·造型锚点图** `sider-batch/refs/mc-anchor.png`；
+- 完整提示词：`sider-batch/tasks/清晨的色彩-场景图-1..4.jsonl`（本地出图工具目录，不入库）；
+- 分镜与选曲说明：`docs/清晨的色彩-分镜与配乐.md`；
+- 原图（2K PNG）留在本地 `sider-batch/out-场景图/`，不入库，
+  压缩成网页用尺寸由 `tools/build-scene-images.py` 完成。
+
+图片为同人二创，角色形象版权归 A-SOUL（字节跳动）所有，仅作非商业同人展示。
+
 ## 剧场模式配乐
 
 剧场模式默认由 `assets/js/music.js` 通过 Web Audio API 实时合成环境音乐
 （长音铺底、钟琴点缀、空气噪声），不存在版权与授权问题，也不依赖网络。
 
-《清晨的色彩》额外使用真实音频：
+《清晨的色彩》改为逐场景配乐：`data/scenes.json` 里每个场景都写了 `mood`
+（共用到 `morning` / `lazy` / `memory` / `playful` / `bloom` / `cafe` / `city` /
+`warm` / `space` / `dusk` / `night` / `dream` / `tension` / `glow` 等氛围），
+换场时自动交叉淡入切换，全部是实时合成的，没有引入新的素材版权。
+
+其中「第二节 · 中午换一家吃吧」一场挂了一首真实音频作为示范：
 
 | 文件 | 曲目 / 作者 | 许可与来源 |
 | --- | --- | --- |
@@ -83,8 +103,9 @@
 
 署名文本：`Carefree by Kevin MacLeod | http://incompetech.com`。
 
-如果后续要换成真实音频，在 `data/scenes.json` 中给对应小说加上
-`"bgm": "assets/audio/xxx.mp3"` 即可（详见 `README.md`）。
+如果后续要换成真实音频，在 `data/scenes.json` 中给对应小说**或某一场**加上
+`"bgm": "assets/audio/xxx.mp3"` 即可（详见 `README.md` 与
+`docs/清晨的色彩-分镜与配乐.md`）。
 
 ## 封面与横幅
 

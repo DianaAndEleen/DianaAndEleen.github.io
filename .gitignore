@@ -16,3 +16,6 @@ desktop.ini
 .vscode/
 .idea/
 *.swp
+
+# 剧场模式的本地截图（tools/qa-theater.mjs 生成）
+.qa/

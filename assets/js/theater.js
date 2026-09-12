@@ -11,6 +11,12 @@
  *   books[bookId].backgrounds       通用背景池
  *   books[bookId].chapters["1"]     某一章的逐段背景（优先）
  *   books[bookId].speakers["1"]["3"] 可选的逐段说话人覆盖（null 表示旁白）
+ *
+ * chapters 支持两种写法：
+ *   1. 数组 ["a", "b", "c"]：一段文字一张图（旧格式）；
+ *   2. 对象 { "scenes": [{ img, from, to, name, mood, bgm }] }：按「场景」
+ *      合并若干段文字，每个场景一张图，并可带自己的标题与配乐（新格式，
+ *      《清晨的色彩》用它实现逐场景配图 / 逐场景换曲）。
  */
 (function () {
   "use strict";
@@ -28,6 +34,9 @@
     autoTimer: null,
     activeLayer: "a",
     currentImage: "",
+    currentScene: -1,
+    chapterTitle: "",
+    musicOff: false,
     data: null,
     cfg: null,
     chapterIndex: 1,
@@ -122,6 +131,7 @@
           '<span class="theater-kicker">沉浸剧场</span>' +
           '<span class="theater-book" data-t-book></span>' +
           '<span class="theater-chapter" data-t-chapter></span>' +
+          '<span class="theater-scene" data-t-scene></span>' +
         '</div>' +
         '<div class="theater-tools">' +
           '<button class="theater-btn" data-t-music type="button" title="背景音乐（M）">' +
@@ -156,6 +166,7 @@
     el.bgB = root.querySelector('[data-bg="b"]');
     el.book = root.querySelector("[data-t-book]");
     el.chapter = root.querySelector("[data-t-chapter]");
+    el.scene = root.querySelector("[data-t-scene]");
     el.bar = root.querySelector("[data-t-bar]");
     el.dialogue = root.querySelector("[data-t-dialogue]");
     el.name = root.querySelector("[data-t-name]");
@@ -175,6 +186,36 @@
 
   /* ------------------------------ 场景构建 ------------------------------ */
 
+  /**
+   * 把某一章的配置摊平成「第 n 段文字属于哪个场景」。
+   * 返回的数组长度等于段落数；元素是场景配置对象（含 img）。
+   */
+  function buildPlan(chapterBgs, pool, paragraphCount) {
+    var plan = [];
+    var i;
+
+    if (Array.isArray(chapterBgs)) {
+      for (i = 0; i < paragraphCount; i++) {
+        var key = chapterBgs[i] || pool[i % pool.length];
+        plan.push({ img: key });
+      }
+      return plan;
+    }
+
+    if (chapterBgs && Array.isArray(chapterBgs.scenes)) {
+      var cursor = 0;
+      chapterBgs.scenes.forEach(function (s) {
+        var from = s.from == null ? cursor : s.from;
+        var to = s.to == null ? from : s.to;
+        for (i = Math.max(0, from); i <= to; i++) plan[i] = s;
+        cursor = to + 1;
+      });
+      return plan;
+    }
+
+    return null;
+  }
+
   function buildScenes(ready) {
     var book = ready.book;
     var ch = ready.chapter;
@@ -183,15 +224,38 @@
     var chapterBgs = (cfg.chapters && cfg.chapters[String(ready.chapterIndex)]) || null;
     var chapterSpeakers = (cfg.speakers && cfg.speakers[String(ready.chapterIndex)]) || null;
     var imageBase = scenesConfig.imageBase || "assets/images/scenes/";
+    var paragraphs = ch.paragraphs || [];
+    var plan = buildPlan(chapterBgs, pool, paragraphs.length);
 
     var scenes = [];
-    (ch.paragraphs || []).forEach(function (p, pi) {
-      var key = (chapterBgs && chapterBgs[pi]) || pool[pi % pool.length];
+    var lastEntry = null;
+
+    paragraphs.forEach(function (p, pi) {
+      var entry = (plan && plan[pi]) || { img: pool[pi % pool.length] };
+      var key = entry.img || entry.key || pool[pi % pool.length];
       var hasSpeaker = hasOwn(chapterSpeakers, String(pi));
       var lines = splitLines(p).map(function (line) {
         return { text: line, speaker: speakerOf(line, cfg.cast, hasSpeaker ? chapterSpeakers[String(pi)] : undefined) };
       });
-      if (lines.length) scenes.push({ image: imageBase + key + ".jpg", key: key, lines: lines });
+      if (!lines.length) return;
+
+      // 同一个场景配置连续覆盖若干段文字时，合并成同一个「幕」，
+      // 这样背景不会来回闪，场景标题也只在进入时出现一次。
+      if (lastEntry === entry && scenes.length) {
+        scenes[scenes.length - 1].lines = scenes[scenes.length - 1].lines.concat(lines);
+        return;
+      }
+
+      lastEntry = entry;
+      scenes.push({
+        image: imageBase + key + ".jpg",
+        key: key,
+        name: entry.name || "",
+        mood: entry.mood || "",
+        bgm: entry.bgm || "",
+        musicStyle: entry.musicStyle || "",
+        lines: lines
+      });
     });
 
     if (!scenes.length) scenes.push({ image: imageBase + pool[0] + ".jpg", key: pool[0], lines: [{ text: "这一章还没有可展示的文字。", speaker: "" }] });
@@ -209,6 +273,8 @@
     state.index = 0;
     state.ended = false;
     state.currentImage = "";
+    state.currentScene = -1;
+    state.chapterTitle = (chapterBgs && chapterBgs.title) || "";
   }
 
   function preload(key) {
@@ -234,9 +300,44 @@
     var ready = window.QJ_READY;
     if (!ready) return;
     el.book.textContent = ready.book.title;
-    el.chapter.textContent = ready.chapter.title;
+    el.chapter.textContent = state.chapterTitle || ready.chapter.title;
     el.count.textContent = (state.index + 1) + " / " + state.flat.length;
     el.bar.style.width = ((state.index + 1) / state.flat.length * 100).toFixed(2) + "%";
+  }
+
+  function moodLabel(key) {
+    var moods = (window.QJMusic && window.QJMusic.moods) || {};
+    return (moods[key] && moods[key].label) || "";
+  }
+
+  /** 进入新场景时更新场景标题，并按场景切换配乐。 */
+  function enterScene(si) {
+    if (si === state.currentScene) return;
+    state.currentScene = si;
+
+    var scene = state.scenes[si];
+    if (el.scene) {
+      // 真实音频（自己挑的曲子）优先于合成氛围，标签也就跟着改口
+     var title = (scene && scene.name) || "";
+      var label = scene && scene.bgm
+        ? "自选曲目"
+        : (scene && scene.mood ? moodLabel(scene.mood) : "");
+      if (title) {
+        el.scene.innerHTML =
+          '<span class="theater-scene-idx">场景 ' + (si + 1) + ' ·</span>' +
+          '<span class="theater-scene-name">' + esc(title) + '</span>' +
+          (label
+            ? '<span class="theater-scene-music" title="' + esc((scene && scene.musicStyle) || "") + '">♪ ' + esc(label) + "</span>"
+            : "");
+      } else {
+        el.scene.textContent = "";
+      }
+      el.scene.classList.remove("is-in");
+      void el.scene.offsetWidth;
+      if (title) el.scene.classList.add("is-in");
+    }
+
+    if (!state.ended) applySceneAudio();
   }
 
   function typeText(text) {
@@ -262,6 +363,7 @@
     var item = state.flat[state.index];
     if (!item) return;
     var scene = state.scenes[item.scene];
+    enterScene(item.scene);
     setBackground(scene.image);
     updateHud();
 
@@ -379,7 +481,8 @@
 
   /* ------------------------------ 音乐 ------------------------------ */
 
-  var bgmAudio = null;
+  var bgmAudio = null;   // 当前正在播放的真实音频文件
+  var bgmTimers = [];    // 淡入 / 淡出用的定时器
 
   function musicPlaying() {
     return (bgmAudio && !bgmAudio.paused) ||
@@ -402,44 +505,107 @@
     }, 200);
   }
 
-  function startSynth() {
-    if (!window.QJMusic) return;
-    var key = (state.cfg && state.cfg.mood) || "sea";
-    window.QJMusic.start(key);
+  function clearBgmTimers() {
+    bgmTimers.forEach(clearInterval);
+    bgmTimers = [];
   }
 
-  function startBgmFile(src, fallback) {
-    if (!bgmAudio || bgmAudio.dataset.src !== src) {
-      if (bgmAudio) {
-        bgmAudio.pause();
-        bgmAudio = null;
+  function fadeOutFile(audio, seconds) {
+    var from = audio.volume || 0;
+    var steps = Math.max(1, Math.round((seconds || 1.2) * 20));
+    var i = 0;
+    var timer = setInterval(function () {
+      i += 1;
+      audio.volume = Math.max(0, from * (1 - i / steps));
+      if (i >= steps) {
+        clearInterval(timer);
+        audio.pause();
       }
-      bgmAudio = new Audio(src);
-      bgmAudio.dataset.src = src;
-      bgmAudio.loop = true;
-      bgmAudio.volume = (window.QJMusic ? window.QJMusic.getVolume() : 0.55);
-      bgmAudio.addEventListener("error", function () {
-        bgmAudio = null;
-        if (fallback) startSynth();
-        updateMusicUi();
-      });
-    }
-    var p = bgmAudio.play();
-    if (p && p.catch) p.catch(function () { /* 浏览器要求先有用户手势，保持待播放 */ });
+    }, 50);
+    bgmTimers.push(timer);
   }
 
-  function stopMusic() {
-    if (bgmAudio) bgmAudio.pause();
-    if (window.QJMusic) window.QJMusic.stop();
+  function stopFile(seconds) {
+    if (!bgmAudio) return;
+    var audio = bgmAudio;
+    bgmAudio = null;
+    fadeOutFile(audio, seconds);
+  }
+
+  function fallbackMood(scene) {
+    return (scene && scene.mood) || (state.cfg && state.cfg.mood) || "sea";
+  }
+
+  function playFile(src, scene) {
+    if (bgmAudio && bgmAudio.dataset.src === src) {
+      var resume = bgmAudio.play();
+      if (resume && resume.catch) resume.catch(function () { /* 等用户手势 */ });
+      return;
+    }
+
+    stopFile(1.2);
+    if (window.QJMusic) window.QJMusic.stop(0.9);
+
+    var audio = new Audio(src);
+    audio.dataset.src = src;
+    audio.loop = true;
+    var target = window.QJMusic ? window.QJMusic.getVolume() : 0.55;
+    audio.volume = 0.0001;
+    audio.addEventListener("error", function () {
+      if (bgmAudio === audio) bgmAudio = null;
+      if (!state.musicOff && window.QJMusic) window.QJMusic.start(fallbackMood(scene), 1.8);
+      updateMusicUi();
+    });
+    bgmAudio = audio;
+
+    var played = audio.play();
+    if (played && played.catch) played.catch(function () { /* 浏览器要求先有用户手势 */ });
+
+    var steps = 30;
+    var i = 0;
+    var timer = setInterval(function () {
+      i += 1;
+      audio.volume = Math.min(target, target * (i / steps));
+      if (i >= steps) clearInterval(timer);
+    }, 50);
+    bgmTimers.push(timer);
+  }
+
+  /**
+   * 按当前场景决定听什么：场景 / 整本书指定了真实音频就放文件，
+   * 否则切成这个场景对应的实时合成氛围；用户手动关掉音乐时不打扰他。
+   */
+  function applySceneAudio(force) {
+    if (state.musicOff && !force) return;
+    var scene = state.scenes[state.currentScene] || null;
+    var bgm = (scene && scene.bgm) || (state.cfg && state.cfg.bgm) || "";
+    if (bgm) {
+      playFile((window.QJ.base || "") + bgm, scene);
+    } else {
+      stopFile(1.2);
+      var mood = fallbackMood(scene);
+      if (window.QJMusic) window.QJMusic.start(mood, 1.8);
+    }
+    updateMusicUi();
+  }
+
+  function hardStopFile() {
+    if (!bgmAudio) return;
+    var audio = bgmAudio;
+    bgmAudio = null;
+    audio.pause();
+  }
+
+  function stopMusic(immediate) {
+    state.musicOff = true;
+    if (immediate) hardStopFile();
+    else stopFile(0.9);
+    if (window.QJMusic) window.QJMusic.stop(1.2);
   }
 
   function startMusic() {
-    var bgm = state.cfg && state.cfg.bgm;
-    if (bgm) {
-      startBgmFile((window.QJ.base || "") + bgm, true);
-    } else {
-      startSynth();
-    }
+    state.musicOff = false;
+    applySceneAudio(true);
     updateMusicUi();
   }
 
@@ -451,6 +617,7 @@
     buildDom();
     state.chapterIndex = ready.chapterIndex;
     state.totalChapters = ready.totalChapters;
+    state.musicOff = false;
     buildScenes(ready);
 
     var jump = parseInt(new URLSearchParams(window.location.search).get("line") || "", 10);
@@ -474,7 +641,8 @@
     state.open = false;
     clearAuto();
     clearInterval(state.typeTimer);
-    stopMusic();
+    stopMusic(true);
+    clearBgmTimers();
     el.root.classList.remove("open", "ready", "has-music");
     el.root.setAttribute("aria-hidden", "true");
     document.body.classList.remove("no-scroll", "theater-open");

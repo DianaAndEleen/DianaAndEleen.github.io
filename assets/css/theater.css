@@ -114,6 +114,44 @@
   color: rgba(244, 241, 234, 0.62);
 }
 
+/* 当前场景：进入新场景时淡入一行「场景 3 · 电梯里的粉色洋娃娃 · ♪ 心动」 */
+.theater-scene {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  max-width: min(52vw, 620px);
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: rgba(244, 241, 234, 0.72);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+
+.theater-scene.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+.theater-scene-idx {
+  font-size: 0.66rem;
+  letter-spacing: 0.24em;
+  color: var(--accent);
+}
+
+.theater-scene-name {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.theater-scene-music {
+  font-size: 0.72rem;
+  color: rgba(244, 241, 234, 0.42);
+  letter-spacing: 0.04em;
+}
+
 .theater-tools {
   display: flex;
   align-items: center;

@@ -23,14 +23,59 @@
     },
     "morning-colors": {
       "mood": "morning",
-      "bgm": "assets/audio/carefree.mp3",
       "cast": ["乃琳", "嘉然", "同事"],
       "backgrounds": ["bedroom-cozy", "workspace", "office-building", "desk-work", "office-hall", "pink-dahlia", "morning-coffee", "tree-street", "cherry-street", "cafe-window", "city-street", "hotpot", "white-bouquet", "night-bokeh", "morning-light", "summer-park"],
       "chapters": {
-        "1": ["bedroom-cozy", "bedroom-cozy", "workspace", "office-building", "desk-work", "office-hall", "workspace", "office-hall", "office-hall", "office-hall", "pink-dahlia", "office-hall", "office-hall", "pink-dahlia", "morning-coffee", "morning-coffee", "tree-street", "tree-street", "cherry-street", "cafe-window"],
-        "2": ["morning-coffee", "cafe-window", "city-street", "city-street", "city-street", "city-street", "tree-street", "city-street", "hotpot", "tree-street", "tree-street", "tree-street", "hotpot", "hotpot", "hotpot", "hotpot", "hotpot", "hotpot", "hotpot", "hotpot", "hotpot", "hotpot", "hotpot", "hotpot", "hotpot", "hotpot", "office-building", "office-building", "office-building", "city-street", "city-street", "city-street"],
-        "3": ["desk-work", "workspace", "office-hall", "office-hall", "office-building", "office-building", "office-building", "office-hall", "city-street", "city-street", "city-street", "city-street", "tree-street", "tree-street", "city-street", "city-street", "city-street", "city-street", "city-street", "tree-street", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "white-bouquet", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "night-bokeh", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "white-bouquet", "white-bouquet", "white-bouquet", "bedroom-cozy", "bedroom-cozy", "white-bouquet", "white-bouquet", "white-bouquet", "white-bouquet", "white-bouquet", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy"],
-        "4": ["morning-light", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "bedroom-cozy", "tree-street", "summer-park", "tree-street", "summer-park", "city-street"]
+        "1": {
+          "title": "第一节 · 电梯里的粉色洋娃娃",
+          "scenes": [
+            { "id": "ch1-01", "img": "morning-colors/ch1-01", "from": 0, "to": 0, "name": "不妨出去走走", "mood": "morning", "musicStyle": "夏日清晨的通透钢琴，慢速琶音＋极淡弦乐；空、开阔、略带走神" },
+            { "id": "ch1-02", "img": "morning-colors/ch1-02", "from": 1, "to": 2, "name": "七点钟的办公室", "mood": "lazy", "musicStyle": "低电量 Lo-fi：电钢＋轻刷鼓，BPM 70 上下，慵懒、无奈、带点困" },
+            { "id": "ch1-03", "img": "morning-colors/ch1-03", "from": 3, "to": 4, "name": "从枝江大学到枝江大楼", "mood": "memory", "musicStyle": "加了回忆滤镜的钢琴小品＋弦乐，轻微降饱和的怀旧感" },
+            { "id": "ch1-04", "img": "morning-colors/ch1-04", "from": 5, "to": 7, "name": "偷来的半个下午", "mood": "playful", "musicStyle": "轻快狡黠的拨弦＋木琴，节奏跳跃，像偷偷溜走的脚步" },
+            { "id": "ch1-05", "img": "morning-colors/ch1-05", "from": 8, "to": 10, "name": "电梯里的粉色洋娃娃", "mood": "bloom", "musicStyle": "忽然安静下来的钢琴单音＋泛音，时间被拉长，世界停一拍" },
+            { "id": "ch1-06", "img": "morning-colors/ch1-06", "from": 11, "to": 14, "name": "要不要一起喝杯咖啡", "mood": "playful", "musicStyle": "轻喜剧式的心跳：拨弦＋手鼓＋短促弦乐断句，慌张、可爱" },
+            { "id": "ch1-07", "img": "morning-colors/ch1-07", "from": 15, "to": 16, "name": "风里的铃兰花香", "mood": "morning", "musicStyle": "开阔的夏日风：钢琴＋长音垫，清爽、透气、有心动的余温" },
+            { "id": "ch1-08", "img": "morning-colors/ch1-08", "from": 17, "to": 19, "name": "我叫乃琳，我是嘉然", "mood": "bloom", "musicStyle": "初绽的心动：暖调钢琴＋轻弦乐，甜、慢、微微发颤" }
+          ]
+        },
+        "2": {
+          "title": "第二节 · 五点之约",
+          "scenes": [
+            { "id": "ch2-01", "img": "morning-colors/ch2-01", "from": 0, "to": 0, "name": "QQ 里的老虎机", "mood": "cafe", "musicStyle": "轻快的日常小曲：木吉他＋电钢，BPM 90，明亮、雀跃" },
+            { "id": "ch2-02", "img": "morning-colors/ch2-02", "from": 1, "to": 1, "name": "咖啡店的第一次", "mood": "cafe", "musicStyle": "咖啡馆轻爵士：刷鼓＋低音贝斯＋钢琴，慵懒、亲昵、午后" },
+            { "id": "ch2-03", "img": "morning-colors/ch2-03", "from": 2, "to": 8, "name": "中午换一家吃吧", "mood": "city", "musicStyle": "夏日都市的轻快电子/拨弦，BPM 100，热、亮、有蝉鸣的空气感", "bgm": "assets/audio/carefree.mp3" },
+            { "id": "ch2-04", "img": "morning-colors/ch2-04", "from": 9, "to": 11, "name": "路牙石上的小跳跃", "mood": "playful", "musicStyle": "俏皮的木琴与跳音，跟着脚步一起一伏，宠溺又好笑" },
+            { "id": "ch2-05", "img": "morning-colors/ch2-05", "from": 12, "to": 16, "name": "番茄锅与满桌的菜", "mood": "warm", "musicStyle": "烟火气：暖弦乐＋手风琴/口琴感音色，热闹、暖、有蒸汽" },
+            { "id": "ch2-06", "img": "morning-colors/ch2-06", "from": 17, "to": 24, "name": "然然吃肉肉", "mood": "warm", "musicStyle": "甜而调皮的撒娇曲：钟琴＋弹拨＋轻鼓，可爱、暧昧" },
+            { "id": "ch2-07", "img": "morning-colors/ch2-07", "from": 25, "to": 31, "name": "五点之约", "mood": "bloom", "musicStyle": "心跳加速的收束：弦乐渐强＋钢琴高音，期待、酥麻" }
+          ]
+        },
+        "3": {
+          "title": "第三节 · 我也喜欢你",
+          "scenes": [
+            { "id": "ch3-01", "img": "morning-colors/ch3-01", "from": 0, "to": 1, "name": "下午的心安", "mood": "space", "musicStyle": "极简的静水配乐：长音垫＋稀疏钟琴，专注、安宁" },
+            { "id": "ch3-02", "img": "morning-colors/ch3-02", "from": 2, "to": 3, "name": "在门口等一位小同事", "mood": "city", "musicStyle": "轻紧张的都市等待：低音脉动＋拨弦，克制、坐立不安" },
+            { "id": "ch3-03", "img": "morning-colors/ch3-03", "from": 4, "to": 7, "name": "嘉然，我在这", "mood": "bloom", "musicStyle": "心动主题的明亮变奏：弦乐＋钢琴，一秒亮起来" },
+            { "id": "ch3-04", "img": "morning-colors/ch3-04", "from": 8, "to": 10, "name": "今天有点累", "mood": "dusk", "musicStyle": "骤然降温：低音长音＋空心五度，冷、闷、晴天里的失重" },
+            { "id": "ch3-05", "img": "morning-colors/ch3-05", "from": 11, "to": 13, "name": "蔫掉的呆毛", "mood": "dusk", "musicStyle": "委屈的下行旋律：大提琴/中提琴＋稀疏钢琴，酸、慢" },
+            { "id": "ch3-06", "img": "morning-colors/ch3-06", "from": 14, "to": 18, "name": "没有乃宝好孤单", "mood": "playful", "musicStyle": "轻喜剧插曲：拨弦＋木管，两三句就收，俏皮、打破沉重" },
+            { "id": "ch3-07", "img": "morning-colors/ch3-07", "from": 19, "to": 21, "name": "月光落在木地板上", "mood": "night", "musicStyle": "夜色独白：低频长音＋极稀疏的钟琴，孤、静、心跳可闻" },
+            { "id": "ch3-08", "img": "morning-colors/ch3-08", "from": 22, "to": 35, "name": "因为你和她说话的时候脸红了", "mood": "night", "musicStyle": "慵懒暧昧的夜色 R&B/慢速钢琴，慢、贴身、若有若无" },
+            { "id": "ch3-09", "img": "morning-colors/ch3-09", "from": 36, "to": 45, "name": "我想象中的告白", "mood": "dream", "musicStyle": "华尔兹感的梦境弦乐，加一点盒式琴，朦胧、飘、柔焦" },
+            { "id": "ch3-10", "img": "morning-colors/ch3-10", "from": 46, "to": 53, "name": "把告白发出去", "mood": "tension", "musicStyle": "屏息：几乎没有旋律的低音持续音＋心跳般的弱鼓点" },
+            { "id": "ch3-11", "img": "morning-colors/ch3-11", "from": 54, "to": 64, "name": "我也喜欢你", "mood": "glow", "musicStyle": "情绪爆发的上扬弦乐＋钟琴，明亮、甜、有点想哭" },
+            { "id": "ch3-12", "img": "morning-colors/ch3-12", "from": 65, "to": 67, "name": "晚安，我的嘉然小姐", "mood": "glow", "musicStyle": "温柔的收束：主题旋律的钢琴独奏版，慢慢收尾、留白" }
+          ]
+        },
+        "4": {
+          "title": "第四节 · 赶在铃声响起之前",
+          "scenes": [
+            { "id": "ch4-01", "img": "morning-colors/ch4-01", "from": 0, "to": 5, "name": "沙发上的清晨", "mood": "morning", "musicStyle": "清晨的留白：单音钢琴＋空气声，安静、微亮、还没醒透" },
+            { "id": "ch4-02", "img": "morning-colors/ch4-02", "from": 6, "to": 8, "name": "晨曦里的人行道", "mood": "morning", "musicStyle": "木吉他指弹＋口琴，清新、轻快、有青草味" },
+            { "id": "ch4-03", "img": "morning-colors/ch4-03", "from": 9, "to": 10, "name": "赶在铃声响起之前", "mood": "bloom", "musicStyle": "主题全奏：弦乐＋钢琴＋轻鼓，明亮、向前、收在日常里" }
+          ]
+        }
       },
       "speakers": {
         "1": {"9": "嘉然", "10": "乃琳", "11": "嘉然", "12": "嘉然", "13": "乃琳", "14": "嘉然", "16": "嘉然", "17": "乃琳", "18": "乃琳", "19": "嘉然"},
