@@ -1,0 +1,3 @@
+id,prompt,refs,model,quality,resolution,aspectRatio
+diana-style,"图1是画风参考，图2是角色参考。用图1的画风重绘图2的角色：Q版软萌、粗描边、圆润线条、扁平平涂、低饱和配色。保留金色长发、头顶红色大蝴蝶结、红色长袖外套配白色前襟、卡其色百褶裙、白色长袜、黑色鞋子、蓝色眼睛。只画一个正面全身立绘，白色背景。",refs/Diana.jpg|refs/常服.png,gemini-2.5-flash-image,,,3:4
+night-scene,"图1是角色和构图参考，图2是画风参考。用图2的画风（精细日系动画上色、明亮配色、细描边）重绘图1：戴兔子耳朵睡帽的棕发女孩，闭眼抱着白色小熊，躺在被子里。",refs/Diana.jpg|refs/常服.png,gpt-image-2,low,1K,1:1

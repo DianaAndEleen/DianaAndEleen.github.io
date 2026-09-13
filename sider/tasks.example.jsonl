@@ -1,0 +1,3 @@
+{"id":"poster-cafe","prompt":"repaint this scene as a soft watercolor illustration, keep the composition","refs":["assets/images/scenes/cafe-window.jpg"],"model":"gpt-image-2","quality":"low","resolution":"1K","aspectRatio":"Auto"}
+{"id":"poster-park","prompt":"turn this photo into a flat vector poster with a limited warm palette","refs":["assets/images/scenes/sunny-park.jpg"],"model":"gpt-image-2","quality":"medium","resolution":"2K","aspectRatio":"3:4"}
+{"id":"text-only","prompt":"a lone lighthouse at dusk, long-exposure photography","model":"gemini-2.5-flash-image","aspectRatio":"16:9"}

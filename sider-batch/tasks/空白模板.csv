@@ -1,0 +1,2 @@
+id,prompt,refs,model,quality,resolution,aspectRatio
+my-001,在这里写提示词,,gpt-image-2,low,1K,1:1

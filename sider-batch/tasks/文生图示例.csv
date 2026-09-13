@@ -1,0 +1,4 @@
+id,prompt,model,quality,resolution,aspectRatio
+cat-window,一只橘猫趴在窗台上打盹，午后阳光，水彩插画风,gpt-image-2,low,1K,1:1
+lighthouse,黄昏海边的灯塔，长曝光摄影，冷色调,gpt-image-2,low,1K,16:9
+logo-mark,极简几何风格的猫头标志，单色，白色背景,gpt-image-2,low,1K,1:1
